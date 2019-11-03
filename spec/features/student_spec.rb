@@ -1,38 +1,38 @@
 require 'rails_helper'
 
 describe 'Route to view' do
-  # it 'has an index page' do
-  #   visit students_path
-  #   expect(page.status_code).to eq(200)
-  # end
+  it 'has an index page' do
+    visit students_path
+    expect(page.status_code).to eq(200)
+  end
 end
 
 describe 'Multiple students' do
-  # it 'shows them on the index page' do
-  #   Student.create!(first_name: "Daenerys", last_name: "Targaryen")
-  #   Student.create!(first_name: "Lindsey", last_name: "Stirling")
-  #
-  #   visit students_path
-  #   expect(page).to have_content(/Daenerys|Lindsey/)
-  # end
+  it 'shows them on the index page' do
+    Student.create!(first_name: "Daenerys", last_name: "Targaryen")
+    Student.create!(first_name: "Lindsey", last_name: "Stirling")
+
+    visit students_path
+    expect(page).to have_content(/Daenerys|Lindsey/)
+  end
 end
 
 describe 'form page' do
-  # it 'renders the form with the new action' do
-  #   visit new_student_path
-  #   expect(page).to have_content("Student Form")
-  # end
-  #
-  # it 'ensures that the new form submits content and renders form content' do
-  #   # visit new_student_path
-  #
-  #   fill_in 'student[first_name]', with: "Margaery"
-  #   fill_in 'student[last_name]', with: "Tyrell"
-  #
-  #   click_on "Submit Student"
-  #
-  #   expect(page).to have_content("Margaery")
-  # end
+  it 'renders the form with the new action' do
+    visit new_student_path
+    expect(page).to have_content("Student Form")
+  end
+
+  it 'ensures that the new form submits content and renders form content' do
+    # visit new_student_path
+
+    fill_in 'student[first_name]', with: "Margaery"
+    fill_in 'student[last_name]', with: "Tyrell"
+
+    click_on "Submit Student"
+
+    expect(page).to have_content("Margaery")
+  end
 end
 
 describe 'Show page' do
@@ -57,9 +57,9 @@ describe 'Show page' do
 end
 
 describe 'linking from the index page to the show page' do
-  # it 'index page links to post page' do
-  #   @student = Student.create!(first_name: "Daenerys", last_name: "Targaryen")
-  #   visit students_path
-  #   expect(page).to have_link(@student.to_s, href: student_path(@student))
-  # end
+  it 'index page links to post page' do
+    @student = Student.create!(first_name: "Daenerys", last_name: "Targaryen")
+    visit students_path
+    expect(page).to have_link(@student.to_s, href: student_path(@student))
+  end
 end
