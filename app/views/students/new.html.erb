@@ -1,0 +1,23 @@
+<h3>Student Form</h3>
+
+
+<form action="<%= students_path %>" method="POST">
+
+
+
+  <label>Student name:</label><br>
+  <input type="text" id="student_first_name" name="student[first_name]"><br>
+  <input type="text" id="student_last_name" name="student[last_name]"><br>
+
+
+
+
+
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <%= csrf_meta_tags %> <!-- research security of this. -->
+
+  <input type="submit" value="Submit Student">
+</form>
+
+<%= params.inspect %>
