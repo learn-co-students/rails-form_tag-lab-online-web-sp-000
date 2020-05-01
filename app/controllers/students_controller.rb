@@ -15,8 +15,8 @@ class StudentsController < ApplicationController
   #   @student = Student.find(params[:id])
     first = params[:student][:first_name]
     last = params[:student][:last_name]
-    @student = Student.create!({first_name: first, last_name: last})
-    redirect_to new_student_path
+    student = Student.create!({first_name: first, last_name: last})
+    redirect_to student_path(student)
   end
 
 end
