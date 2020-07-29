@@ -21,3 +21,4 @@ end
 #modified config/routes.rb
 #modified students_controller
 #modified views/new.html.erb
+#added seed data
