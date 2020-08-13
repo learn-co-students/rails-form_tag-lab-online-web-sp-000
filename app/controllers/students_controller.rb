@@ -1,3 +1,4 @@
+#require 'pry'
 class StudentsController < ApplicationController
 
   def index
@@ -13,7 +14,13 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.create(first_name: params[:first_name], last_name: params[:last_name])
+    #binding.pry
      redirect_to students_path(@student)
   end
 
 end
+
+#modified config/routes.rb
+#modified students_controller
+#modified views/new.html.erb
+#added seed data
