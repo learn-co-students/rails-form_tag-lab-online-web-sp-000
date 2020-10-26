@@ -8,4 +8,13 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
+  def new
+    #implicit rendering
+  end
+
+  def create
+    session[:form_inputs] = params[:student]
+    redirect_to new_student_path
+  end
+
 end
