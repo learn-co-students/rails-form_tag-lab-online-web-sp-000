@@ -1,3 +1,5 @@
+require 'pry'
+
 class StudentsController < ApplicationController
   
   def index
@@ -8,13 +10,14 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
-  def new
-    @student = Student.find(params[:id])
+  def new  
+    # @student = Student.find(params[:id])
   end
 
   def create
-    Student.create(first_name: params[:student][:first_name], last_name: params[:student][:last_name])
-    redirect_to students_new_path
+    session[:form_params] = params.inspect
+    # binding.pry
+    redirect_to new_student_path
   end
 
 end
